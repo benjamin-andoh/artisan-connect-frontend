@@ -8,9 +8,9 @@ export default function App() {
   return (
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<AdminDashboard />} />
-        <Route path="/artisan/dashboard" element={<ArtisanDashboard />} />
-        <Route path="/customer/dashboard" element={<CustomerDashboard />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/artisan" element={<ArtisanDashboard />} />
+        <Route path="/customer" element={<CustomerDashboard />} />
       </Routes>
 
   );

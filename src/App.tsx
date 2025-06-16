@@ -10,11 +10,12 @@ import UsersList from './components/UsersList.tsx';
 export default function App() {
   return (
       <Routes>
-        <Route path="/users" element={<UsersList />} />
+        
         <Route path="/register" element={<Register />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<AdminDashboard />} />
+        <Route path="/users" element={<UsersList />} />
+        <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/artisan" element={<ArtisanDashboard />} />
         <Route path="/customer" element={<CustomerDashboard />} />
       </Routes>

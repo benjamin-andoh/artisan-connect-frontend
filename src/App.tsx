@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Register from './pages/Register';
 import VerifyEmail from './pages/VerifyEmail';
 import UsersList from './components/UsersList.tsx';
+import LandingPage from './pages/LandingPage.tsx';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/login" element={<Login />} />
+        <Route path='/landing-page' element={< LandingPage />} />
         <Route path="/users" element={<UsersList />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/artisan" element={<ArtisanDashboard />} />

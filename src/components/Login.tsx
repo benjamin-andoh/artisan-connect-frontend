@@ -35,17 +35,17 @@ const Login = () => {
         placeholder="Email"
         value={email}
         onChange={e => setEmail(e.target.value)}
-        className="w-full p-2 border"
+        className="email-input"
       />
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={e => setPassword(e.target.value)}
-        className="w-full p-2 border"
+        className="password-input"
       />
       {error && <p className="text-red-500">{error}</p>}
-      <button type="submit" className="bg-blue-600 text-white px-4 py-2">Login</button>
+      <button type="submit" className="login-button">Login</button>
     </form>
   );
 };

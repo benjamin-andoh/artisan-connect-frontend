@@ -11,7 +11,6 @@ import LandingPage from './pages/LandingPage.tsx';
 export default function App() {
   return (
       <Routes>
-        
         <Route path="/register" element={<Register />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/login" element={<Login />} />
@@ -21,7 +20,6 @@ export default function App() {
         <Route path="/artisan" element={<ArtisanDashboard />} />
         <Route path="/customer" element={<CustomerDashboard />} />
       </Routes>
-
   );
 }
 

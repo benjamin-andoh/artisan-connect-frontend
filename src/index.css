@@ -1,25 +1,248 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* === HERO SECTION === */
+.hero-container {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  color: white;
 }
 
-body {
-    padding: 40px;
-    font-family: "Frankiln Gothic Medium", Arial;
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  z-index: 20;
 }
 
-h2{
-    color: #1c0202;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 48px;
+.hero-subtitle {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 20;
 }
 
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1024px;
-    margin: 0 auto;
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  z-index: 20;
 }
+
+.seach-input-box {
+  padding: 0.75rem 1rem;
+  width: 300px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.search-button {
+  background-color: #f97316;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-button:hover {
+  background-color: #ea580c;
+}
+
+/* === TOP CATEGORIES === */
+.category-container {
+  padding: 4rem 1rem;
+  background-color: #f9fafb;
+}
+
+.category-title-container {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.category-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem;
+  justify-items: center;
+}
+
+.category-card {
+  background: white;
+  padding: 1.5rem 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(31, 41, 55, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  width: 180px;
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(31, 41, 55, 0.15);
+}
+
+.category-img img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-info {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.category-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.4rem;
+}
+
+.category-description {
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.3;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* === WHY CHOOSE US === */
+.why-choose-us-container {
+  padding: 4rem 1rem;
+  background-color: white;
+  text-align: center;
+}
+
+.header {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+.why-choose-us-container > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* === POPULAR ARTISANS === */
+.pupolar-artisan-container {
+  padding: 4rem 1rem;
+  background-color: #f1f5f9;
+}
+
+.artisan-ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.artisan-info {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.artisan-info:hover {
+  transform: translateY(-5px);
+}
+
+.artisan-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.artisan-name h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* artisan category */
+.artisan-page-container {
+  padding: 3rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+.artisan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.artisan-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.artisan-card:hover {
+  transform: translateY(-5px);
+}
+
+.artisan-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.artisan-name1 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.artisan-rating {
+  font-size: 1rem;
+  color: #f59e0b;
+  margin: 0.25rem 0;
+}
+
+.artisan-bio,
+.artisan-location {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+

@@ -40,8 +40,8 @@ const TopCategories = () => {
 
         <div className="category-list">
           {categories.map((cat) => (
-           <Link to={`/category/${cat.name.toLowerCase()}`}>
-              <div key={cat.id} className="category-card">
+           <Link key={cat.id} to={`/artisan-profile/by-category/${cat.name}`}>
+              <div  className="category-card">
                 <div className="category-img">
                   <img src={cat.image} alt={cat.name} />
                 </div>

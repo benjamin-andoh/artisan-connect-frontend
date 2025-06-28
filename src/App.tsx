@@ -9,6 +9,7 @@ import UsersList from './components/UsersList.tsx';
 import LandingPage from './pages/LandingPage.tsx';
 import CategoryPage from './pages/Category/CategoryPage.tsx';
 import ArtisanByCategoryPage from './pages/artisan/ArtisanByCategoryPage.tsx';
+import CreateProfilePage from './pages/artisan/CreateProfilePage.tsx';
 
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/artisan" element={<ArtisanDashboard />} />
         <Route path="/customer" element={<CustomerDashboard />} />
+        <Route path="/create-profile" element={<CreateProfilePage />} />
       </Routes>
   );
 }

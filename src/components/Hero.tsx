@@ -1,4 +1,16 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const Hero = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (searchQuery.trim()){
+      navigate(`/search?q=${searchQuery}`);
+    }
+  };
+
   return (
     <section
       className="hero-container"
@@ -22,8 +34,10 @@ const Hero = () => {
             type="text"
             placeholder="Search for an artisan..."
             className="seach-input-box"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button className="search-button">
+          <button onClick={handleSearch} className="search-button">
             Search
           </button>
         </div>

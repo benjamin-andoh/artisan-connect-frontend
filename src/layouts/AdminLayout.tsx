@@ -5,9 +5,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen">
       <aside className="w-64 bg-gray-800 text-white p-4">
-        <h2 className="text-xl font-bold mb-4">Admin Panel</h2>
         <ul className="space-y-2">
-          <li><Link to="/admin/dashboard">Dashboard</Link></li>
+          <li><Link to="/admin/dashboard">Admin Dashboard</Link></li>
           <li><Link to="/admin/artisans">Manage Artisans</Link></li>
           <li><Link to="/admin/categories">Manage Categories</Link></li>
         </ul>

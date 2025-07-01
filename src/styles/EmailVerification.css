@@ -1,0 +1,56 @@
+.email-verification-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 2rem;
+}
+
+.email-verification-card {
+  max-width: 500px;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.verification-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.verification-message {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 1.25rem;
+}
+
+.verification-note {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.resend-link {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.continue-login-button {
+  display: inline-block;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.continue-login-button:hover {
+  background-color: #2563eb;
+}

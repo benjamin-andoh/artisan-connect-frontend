@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import API from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Login.css'
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -18,9 +19,9 @@ const Login = () => {
 
       login(token);
 
-      const {role} = res.data.user;
+      const {userType} = res.data.user;
 
-    if (role === 'customer') {
+    if (userType === 'customer') {
         navigate('/customer');
     } else {
       navigate('/artisan');
@@ -31,8 +32,8 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleLogin} className="space-y-4 p-4 max-w-md mx-auto">
-      <h2 className="text-xl font-bold">Login</h2>
+    <form onSubmit={handleLogin} className="login-form">
+      <h2 className="login-title">Login</h2>
       <input
         type="email"
         placeholder="Email"
@@ -47,7 +48,7 @@ const Login = () => {
         onChange={e => setPassword(e.target.value)}
         className="password-input"
       />
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="login-error">{error}</p>}
       <button type="submit" className="login-button">Login</button>
     </form>
   );

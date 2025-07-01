@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-// import API from '../utils/api';
 import { useNavigate } from 'react-router-dom';
+import API from '../utils/api';
+import '../styles/Register.css';
 
 const Register: React.FC = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const Register: React.FC = () => {
     username: '',
     email: '',
     password: '',
-    role: 'customer',
+    userType: 'customer',
   });
 
   const [error, setError] = useState('');
@@ -23,19 +24,24 @@ const Register: React.FC = () => {
     setError('');
 
     try {
-      // const res = await API.post('/users', formData);
-      // localStorage.setItem('token', res.data.token);
-      alert('Registration successful');
-      navigate('/login');
+      const res = await API.post('/users', formData);
+
+      if (res.status === 201 || res.status === 200) {
+        localStorage.setItem('token', res.data.token);
+        navigate('/email-verification');
+      } else {
+        setError('Registration failed. Please try again.');
+      }
     } catch (err: any) {
       console.error(err);
-      setError(err.response?.data?.message || 'Registration failed');
+      const msg = err.response?.data?.message || 'Registration failed. Please check your details.';
+      setError(msg);
     }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 border rounded">
-      <h2 className="text-2xl font-bold mb-4">Register</h2>
+    <div className="register-container">
+      <h2 className="register-title">Register</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -44,7 +50,7 @@ const Register: React.FC = () => {
           placeholder="Username"
           value={formData.username}
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className="username-input"
           required
         />
 
@@ -54,7 +60,7 @@ const Register: React.FC = () => {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className="email-input"
           required
         />
 
@@ -64,27 +70,30 @@ const Register: React.FC = () => {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className="password-input"
           required
         />
 
-        <select
-          name="role"
-          value={formData.role}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        >
-          <option value="customer">Customer</option>
-          <option value="artisan">Artisan</option>
-          <option value="admin">Admin</option>
-        </select>
+        <div className="user-type-buttons">
+          <button
+            type="button"
+            className={`user-type-button ${formData.userType === 'customer' ? 'active' : ''}`}
+            onClick={() => setFormData({ ...formData, userType: 'customer' })}
+          >
+            Customer
+          </button>
+          <button
+            type="button"
+            className={`user-type-button ${formData.userType === 'artisan' ? 'active' : ''}`}
+            onClick={() => setFormData({ ...formData, userType: 'artisan' })}
+          >
+            Artisan
+          </button>
+        </div>
 
-        {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="error">{error}</p>}
 
-        <button
-          type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
+        <button type="submit" className="register-btn">
           Register
         </button>
       </form>

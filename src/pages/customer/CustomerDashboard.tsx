@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import API from '../../utils/api';
 import '../../styles/CustomerDashboard.css'
 
@@ -10,6 +10,7 @@ const CustomerDashboard = () => {
       try {
         const res = await API.get('/users/me');
         setCustomer(res.data);
+        console.log("this is the response: ",res)
       } catch (err) {
         console.error('Failed to load customer:', err);
       }

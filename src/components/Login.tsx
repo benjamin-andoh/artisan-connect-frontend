@@ -14,14 +14,17 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await API.post('/auth/login', { email, password });
-      const token = res.data.token;
+      const {token} = res.data;
 
       login(token);
 
-      const role = res.data.user.role;
-      if (role === 'admin') navigate('/admin');
-      else if (role === 'customer') navigate('/customer');
-      else navigate('/artisan');
+      const {role} = res.data.user;
+
+    if (role === 'customer') {
+        navigate('/customer');
+    } else {
+      navigate('/artisan');
+    }
     } catch (err: any) {
       setError(err.response?.data?.message || 'Login failed');
     }

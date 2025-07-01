@@ -1,73 +1,59 @@
-import { createContext, useState, useEffect, useContext } from 'react';
-import type { ReactNode } from 'react';
-import { jwtDecode } from 'jwt-decode';
+import { createContext, useContext, useEffect, useState } from 'react';
 
-// Define the shape of the user and context
-interface DecodedToken {
+interface User {
   id: number;
-  role: string;
-  exp: number;
-  iat: number;
-  // Add other fields if needed
+  username: string;
+  email: string;
+  userType: 'artisan' | 'customer' | 'admin';
+  profileCompleted: boolean;
 }
 
 interface AuthContextType {
-  user: DecodedToken | null;
-  login: (token: string) => void;
+  user: User | null;
+  token: string | null;
+  login: (user: User, token: string) => void;
   logout: () => void;
 }
 
-// Create Context
-export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Provider component
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<DecodedToken | null>(null);
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [user, setUser] = useState<User | null>(null);
+  const [token, setToken] = useState<string | null>(null);
 
-  // Check and decode token on mount
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      try {
-        const decoded: DecodedToken = jwtDecode(token);
-        setUser(decoded);
-      } catch (err) {
-        console.error('Invalid token:', err);
-        localStorage.removeItem('token');
-        setUser(null);
-      }
+    const storedUser = localStorage.getItem('user');
+    const storedToken = localStorage.getItem('token');
+
+    if (storedUser && storedToken) {
+      setUser(JSON.parse(storedUser));
+      setToken(storedToken);
     }
   }, []);
 
-  // Login function
-  const login = (token: string) => {
-    try {
-      const decoded: DecodedToken = jwtDecode(token);
-      localStorage.setItem('token', token);
-      setUser(decoded);
-    } catch (err) {
-      console.error('Login failed: Invalid token');
-    }
+  const login = (user: User, token: string) => {
+    setUser(user);
+    setToken(token);
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', token);
   };
 
-  // Logout function
   const logout = () => {
-    localStorage.removeItem('token');
     setUser(null);
+    setToken(null);
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-// Custom hook
-export const useAuth = (): AuthContextType => {
+export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
+  if (!context) throw new Error('useAuth must be used within AuthProvider');
   return context;
 };

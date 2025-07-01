@@ -13,6 +13,7 @@ import CreateProfilePage from './pages/artisan/CreateProfilePage.tsx';
 import PrivateRoute from './components/PrivateRoute.tsx';
 import SearchResultsPage from './pages/SearchResultsPage.tsx';
 import EmailVerification from './pages/EmailVerification.tsx';
+import UpdateArtisanProfile from './pages/artisan/UpdateArtisanProfile.tsx';
 
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/users" element={<UsersList />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/artisan" element={<ArtisanDashboard />} />
+        <Route path="/artisan/update-profile" element={<UpdateArtisanProfile />} />
         <Route path="/customer" element={<CustomerDashboard />} />
         <Route 
           path="/create-profile" 

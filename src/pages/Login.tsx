@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import API from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Login.css'
+import '../styles/Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -13,42 +13,58 @@ const Login = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
+
     try {
       const res = await API.post('/auth/login', { email, password });
-      const {token} = res.data;
+      const { token, user } = res.data;
 
-      login(token);
+      // Save user and token to context/localStorage
+      login(user, token);
 
-      const {userType} = res.data.user;
-
-    if (userType === 'customer') {
-        navigate('/customer');
-    } else {
-      navigate('/artisan');
-    }
+      // Redirection based on userType and profileCompleted
+      if (user.userType === 'artisan') {
+        if (user.profileCompleted) {
+          navigate('/artisan/dashboard');
+        } else {
+          navigate('/artisan/update-profile');
+        }
+      } else if (user.userType === 'customer') {
+        navigate('/customer/dashboard');
+      } else if (user.userType === 'admin') {
+        navigate('/admin/dashboard');
+      } else {
+        navigate('/');
+      }
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Login failed');
+      setError(err.response?.data?.message || 'Login failed. Please try again.');
     }
   };
 
   return (
     <form onSubmit={handleLogin} className="login-form">
       <h2 className="login-title">Login</h2>
+
       <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={e => setEmail(e.target.value)}
         className="email-input"
+        required
       />
+
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={e => setPassword(e.target.value)}
         className="password-input"
+        required
       />
+
       {error && <p className="login-error">{error}</p>}
+
       <button type="submit" className="login-button">Login</button>
     </form>
   );

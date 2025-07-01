@@ -28,7 +28,7 @@ export default function App() {
         <Route path="/category/:name" element={<CategoryPage />} />
         <Route path="/users" element={<UsersList />} />
         <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/artisan" element={<ArtisanDashboard />} />
+        <Route path="/artisan-bashboard" element={<ArtisanDashboard />} />
         <Route path="/artisan/update-profile" element={<UpdateArtisanProfile />} />
         <Route path="/customer" element={<CustomerDashboard />} />
         <Route 

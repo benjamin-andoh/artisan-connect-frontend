@@ -1,43 +1,58 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../../styles/CustomerDashboard.css'; // Import the CSS
 import API from '../../utils/api';
-import '../../styles/CustomerDashboard.css'
 
 const CustomerDashboard = () => {
-  const [customer, setCustomer] = useState<any>(null);
+  const [profile, setProfile] = useState<any>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchCustomer = async () => {
+    const fetchCustomerProfile = async () => {
       try {
-        const res = await API.get('/users/me');
-        setCustomer(res.data);
-        console.log("this is the response: ",res)
+        const res = await API.get('/customer-profile');
+        setProfile(res.data);
+        console.log(res)
       } catch (err) {
-        console.error('Failed to load customer:', err);
+        console.error('Failed to load customer profile:', err);
       }
     };
 
-    fetchCustomer();
+    fetchCustomerProfile();
   }, []);
 
-  if (!customer) return <div className="dashboard-loading">Loading profile...</div>;
+  if (!profile) return <div className="dashboard-loading">Loading profile...</div>;
 
   return (
-    <div className="customer-dashboard">
-      <div className="dashboard-header">
-        <img src="/default-avatar.jpg" alt="Avatar" className="customer-avatar" />
-        <div className="customer-info">
-          <h2>{customer.username}</h2>
-          <p>{customer.email}</p>
+    <div className="customer-dashboard-container">
+      <div className="customer-profile-card">
+        <img
+          src={profile.avatar || '/default-avatar.jpg'}
+          alt="Customer Avatar"
+          className="customer-avatar"
+        />
+        <div className="customer-details">
+          <h2>{profile.fullName}</h2>
+          <p><strong>Email:</strong>{} {profile.User?.email}</p>
+          <p><strong>Phone:</strong> {profile.phoneNumber || 'N/A'}</p>
+          <p><strong>Address:</strong> {profile.address || 'N/A'}</p>
+          <p><strong>City:</strong> {profile.city || 'N/A'}</p>
         </div>
       </div>
 
-      <div className="dashboard-actions">
-        <button className="dashboard-button">Create Service Request</button>
-        <button className="dashboard-button secondary">View Past Requests</button>
-        <button className="dashboard-button danger">Logout</button>
+      <div className="customer-actions">
+        <button onClick={() => navigate('/service-request/create')} className="action-button primary">
+          + Create Service Request
+        </button>
+        <button onClick={() => navigate('/service-request/history')} className="action-button secondary">
+          View Past Requests
+        </button>
+        <button onClick={() => navigate('/logout')} className="action-button danger">
+          Logout
+        </button>
       </div>
 
-      <div className="dashboard-section">
+      <div className="customer-reviews-section">
         <h3>Your Reviews</h3>
         <p>You haven't reviewed any artisans yet.</p>
       </div>

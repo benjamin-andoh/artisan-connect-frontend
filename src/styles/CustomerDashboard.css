@@ -1,96 +1,95 @@
-.customer-dashboard {
+.customer-dashboard-container {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #f9fafb;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-.dashboard-loading {
-  text-align: center;
-  padding: 2rem;
-  font-size: 1.2rem;
-}
-
-.dashboard-header {
+.customer-profile-card {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .customer-avatar {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
   object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #0ea5e9;
+  border: 2px solid #e0e0e0;
 }
 
-.customer-info h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1f2937;
+.customer-details {
+  flex: 1;
 }
 
-.customer-info p {
+.customer-details h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.customer-details p {
+  margin: 0.25rem 0;
   font-size: 1rem;
-  color: #4b5563;
-  margin-top: 0.3rem;
+  color: #666;
 }
 
-.dashboard-section {
-  margin-top: 2rem;
-}
-
-.dashboard-section h3 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #1f2937;
-  margin-bottom: 0.5rem;
-}
-
-.dashboard-section p {
-  font-size: 1rem;
-  color: #6b7280;
-}
-
-.dashboard-actions {
+.customer-actions {
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
+  flex-wrap: wrap;
   margin-bottom: 2rem;
 }
 
-.dashboard-button {
-  padding: 0.6rem 1.2rem;
-  background-color: #0ea5e9;
-  color: white;
+.action-button {
+  padding: 0.75rem 1.5rem;
   border: none;
+  font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
+  transition: all 0.2s ease-in-out;
 }
 
-.dashboard-button:hover {
-  background-color: #0284c7;
+.action-button.primary {
+  background-color: #2e7d32;
+  color: white;
 }
 
-.dashboard-button.secondary {
-  background-color: #6366f1;
+.action-button.primary:hover {
+  background-color: #1b5e20;
 }
 
-.dashboard-button.secondary:hover {
-  background-color: #4f46e5;
+.action-button.secondary {
+  background-color: #1976d2;
+  color: white;
 }
 
-.dashboard-button.danger {
-  background-color: #ef4444;
+.action-button.secondary:hover {
+  background-color: #0d47a1;
 }
 
-.dashboard-button.danger:hover {
-  background-color: #dc2626;
+.action-button.danger {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.action-button.danger:hover {
+  background-color: #b71c1c;
+}
+
+.customer-reviews-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.customer-reviews-section p {
+  font-size: 1rem;
+  color: #777;
 }

@@ -14,6 +14,7 @@ import PrivateRoute from './components/PrivateRoute.tsx';
 import SearchResultsPage from './pages/SearchResultsPage.tsx';
 import EmailVerification from './pages/EmailVerification.tsx';
 import UpdateArtisanProfile from './pages/artisan/UpdateArtisanProfile.tsx';
+import UpdateCustomerProfile from './pages/customer/UpdateCustomerProfile.tsx';
 
 
 export default function App() {
@@ -28,9 +29,11 @@ export default function App() {
         <Route path="/category/:name" element={<CategoryPage />} />
         <Route path="/users" element={<UsersList />} />
         <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/artisan-bashboard" element={<ArtisanDashboard />} />
+        <Route path="/artisan-dashboard" element={<ArtisanDashboard />} />
         <Route path="/artisan/update-profile" element={<UpdateArtisanProfile />} />
-        <Route path="/customer" element={<CustomerDashboard />} />
+        <Route path="/customer-dashboard" element={<CustomerDashboard />} />
+        <Route path="/customer/update-profile" element={<UpdateCustomerProfile />} />
+        <Route path="/landing-page" element={< LandingPage/>}/>
         <Route 
           path="/create-profile" 
           element={ 

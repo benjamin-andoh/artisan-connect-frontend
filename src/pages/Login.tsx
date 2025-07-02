@@ -17,25 +17,31 @@ const Login = () => {
 
     try {
       const res = await API.post('/auth/login', { email, password });
-      const { token, user } = res.data;
+      const { token, user } = res.data; 
 
-      // Save user and token to context/localStorage
-      login(user, token);
-
-      // Redirection based on userType and profileCompleted
-      if (user.userType === 'artisan') {
-        if (user.profileCompleted) {
-          navigate('/artisan/dashboard');
-        } else {
-          navigate('/artisan/update-profile');
-        }
-      } else if (user.userType === 'customer') {
-        navigate('/customer/dashboard');
-      } else if (user.userType === 'admin') {
-        navigate('/admin/dashboard');
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+    login(user, token);
+    if (user.userType === 'artisan') {
+      if (user.profileCompleted) {
+        navigate('/artisan-dashboard');
       } else {
-        navigate('/');
+        navigate('/artisan/update-profile');
       }
+    } else if (user.userType === 'customer') {
+      if (user.profileCompleted) {
+        navigate('/customer-dashboard');
+      } else {
+        navigate('/customer/update-profile');
+      }
+    } else if (user.userType === 'admin') {
+      navigate('/admin/dashboard');
+    } else {
+      navigate('/');
+    }
+
     } catch (err: any) {
       setError(err.response?.data?.message || 'Login failed. Please try again.');
     }

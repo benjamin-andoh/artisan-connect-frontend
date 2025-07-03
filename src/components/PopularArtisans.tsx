@@ -1,12 +1,12 @@
 const popularArtisans = [
   { name: 'Plumbing', image: '/images/plumbing.jpg' },
-  { name: 'Carpentry', image: '/images/carpentry.jpeg' },
+  { name: 'Carpentry', image: '/images/capentry.jpeg' },
   { name: 'Masonry', image: '/images/masonry.jpeg' },
   { name: 'Roofing', image: '/images/roofing.jpg' },
-  { name: 'Painting', image: '/images/painting.jpg' },
+  { name: 'Painting', image: '/images/painting.jpeg' },
   { name: 'Electrical', image: '/images/electrical.jpeg' },
-  { name: 'HVAC', image: '/images/hvac.jpg' },
-  { name: 'Landscaping', image: '/images/landscaping.jpg' },
+  { name: 'HVAC', image: '/images/hvac.jpeg' },
+  { name: 'Landscaping', image: '/images/landscaping.jpeg' },
 ];
 
 const PopularArtisans = () => {

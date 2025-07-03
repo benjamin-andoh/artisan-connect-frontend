@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState, type SetStateAction } from 'react';
 import API from '../../utils/api';
-import '../../styles/ArtisansByCategoryPage.css'
+import '../../styles/artisan/ArtisansByCategoryPage.css'
+
 
 type Artisan = {
   id: number;

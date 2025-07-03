@@ -2,19 +2,19 @@ import {Routes, Route } from 'react-router-dom';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ArtisanDashboard from './pages/artisan/ArtisanDashboard ';
 import CustomerDashboard from './pages/customer/CustomerDashboard';
-import Login from './pages/Login.tsx';
-import Register from './pages/Register';
-import VerifyEmail from './pages/VerifyEmail';
+import Register from './pages/landingPage/Register.tsx';
 import UsersList from './components/UsersList.tsx';
-import LandingPage from './pages/LandingPage.tsx';
+import LandingPage from './pages/landingPage/LandingPage.tsx';
 import CategoryPage from './pages/Category/CategoryPage.tsx';
 import ArtisanByCategoryPage from './pages/artisan/ArtisanByCategoryPage.tsx';
 import CreateProfilePage from './pages/artisan/CreateProfilePage.tsx';
 import PrivateRoute from './components/PrivateRoute.tsx';
-import SearchResultsPage from './pages/SearchResultsPage.tsx';
-import EmailVerification from './pages/EmailVerification.tsx';
+import SearchResultsPage from './pages/landingPage/SearchResultsPage.tsx';
+import EmailVerification from './pages/landingPage/EmailVerification.tsx';
 import UpdateArtisanProfile from './pages/artisan/UpdateArtisanProfile.tsx';
 import UpdateCustomerProfile from './pages/customer/UpdateCustomerProfile.tsx';
+import Login from './pages/landingPage/Login.tsx';
+import VerifyEmail from './pages/landingPage/VerifyEmail.tsx';
 
 
 export default function App() {

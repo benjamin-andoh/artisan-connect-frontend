@@ -1,8 +1,9 @@
 // src/pages/CreateProfilePage.tsx
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/CreateProfilePage.css';
+import '../../styles/landingPage/CreateProfilePage.css';
 import API from '../../utils/api';
+
 
 interface Category {
   id: number;

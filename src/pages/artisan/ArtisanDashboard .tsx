@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import API from '../../utils/api';
-import '../../styles/ArtisanDashboard.css'
+import '../../styles/artisan/ArtisanDashboard.css'
+
 
 
 export default function ArtisanDashboard() {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/CustomerDashboard.css'; // Import the CSS
+import '../../styles/customer/CustomerDashboard.css';
 import API from '../../utils/api';
 
 const CustomerDashboard = () => {

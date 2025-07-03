@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import API from '../utils/api';
-import '../styles/SearchResultPage.css'
+import API from '../../utils/api';
+import '../../styles/landingPage/SearchResultPage.css'
+
 type Artisan = {
   id: number;
   bio: string;

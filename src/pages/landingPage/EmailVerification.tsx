@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/EmailVerification.css';
+import '../../styles/landingPage/EmailVerification.css';
 
 const EmailVerification: React.FC = () => {
   return (

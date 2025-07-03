@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import API from '../utils/api';
-import '../styles/Register.css';
+import API from '../../utils/api';
+import '../../styles/landingPage/Register.css';
 
 const Register: React.FC = () => {
   const navigate = useNavigate();

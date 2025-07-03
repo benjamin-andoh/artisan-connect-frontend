@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import API from '../../utils/api';
-import '../../styles/UpdateCustomerProfile.css'
+import '../../styles/customer/UpdateCustomerProfile.css'
 
 const UpdateCustomerProfile = () => {
   const { user } = useAuth();
